@@ -1,38 +1,35 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const db = require('../database/index.js');
 
 let app = express();
-let port = process.env.PORT || 3047;
+// let port = process.env.PORT || 3047;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/client/dist'));
 
-/*
-// Change where needed
 
-app.get('/repos', function(req, res) {
-  // TODO - your code here!
-  // This route should take the github username provided
-  // and get the repo information from the github API, then
-  // save the repo information in the database
-  helpers.getReposByUsername(req.body.data, function(git) {
-    Save.save(git);
-  });  
-  res.end("posted");
+app.get('/biz/:restaurant/info', (req, res) => {
+  db.searchInfo(restaurant, (err, data) => {
+    if (err) {
+      res.status(400).json({ result: 'failed' });
+    }
+    res.status(200).json(data);
+  });
 });
 
-app.get('/repos', function(req, res) {
-  // TODO - your code here!
-  // This route should send back the top 25 repos
-  Save.findRepo(function(repos) {
-    res.json(repos);
-  });  
-  // res.end("got");
+app.get('/biz/:restaurant/hours', (req, res) => {
+  db.searchHours(restaurant, (err, data) => {
+    if (err) {
+      res.status(400).json({ result: 'failed' });
+    }
+    res.status(200).json(data);
+  });
 });
-*/
 
-app.listen(port, () => {
-  console.log(`Listening to port ${port}`);
+
+app.listen(3047, () => {
+  console.log(`Listening to port 3047`);
 });
