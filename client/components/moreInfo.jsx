@@ -2,52 +2,17 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
 
-/*class moreInfo extends React.Component {
+/*
+class moreInfo extends React.Component {
   constructor(props) {
     super(props);
     // this.state = {};
     // this.(function) = this.(function).bind(this)
   }
-  
-  // componentDidMount?
-  
-  // function to get more info from the info table
-  // export a get info function from another file?
-  
   render() {
-    return (
-      // html here        
-    );
+    return ();
   }
 }
-
-      // sample
-
-      reservations: false,
-      delivery: false,
-      takeOut: false,
-      credit: false,
-      applePay: false,
-      googlePay: false,
-      bitcoin: false,
-      goodFor: 'nothing',
-      parking: 'none',
-      bike: false,
-      wheelchair: false,
-      kids: false,
-      groups: false,
-      attire: 'casual',
-      ambience: 'casual',
-      noise: 'loud',
-      alcohol: 'beer',
-      outdoor: false,
-      wifi: false,
-      tv: false,
-      dogs: false,
-      waiter: false,
-      caters: false,
-      bathrooms: false,
-
 */
 
 var stringify = (val) => {

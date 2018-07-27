@@ -23,7 +23,7 @@ app.get('/biz/:restaurant/info', (req, res) => {
 app.get('/biz/:restaurant/more', (req, res) => {
   db.searchData(restaurant, 'info', (err, data) => {
     if (err) {
-      res.status(400).josn({ result: 'failed' });
+      res.status(400).json({ result: 'failed' });
     }
     res.status(200).json(data);
   })
@@ -39,7 +39,7 @@ app.get('/biz/:restaurant/hours', (req, res) => {
   });
 });
 
-
+// Hardcoded to port 3047
 app.listen(3047, () => {
   console.log(`Listening to port 3047`);
 });

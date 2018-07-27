@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import $ from 'jquery';
+import $ from 'jquery'; // is this necessary?
 
-/*class hours extends React.Component {
+/*
+class hours extends React.Component {
   constructor(props) {
     super(props);
     // this.state = {};
@@ -23,7 +24,8 @@ import $ from 'jquery';
       </ul>              
     );
   }
-}*/
+}
+*/
 
 const Hours = (props) => (
   <div className="hours-info">
@@ -34,7 +36,7 @@ const Hours = (props) => (
       <li>Thursday: {props.Thu}</li>
       <li>Friday: {props.Fri}</li>
       <li>Saturday: {props.Sat}</li>
-      <li>Sunday/holidays: (closed)</li>
+      <li>Sunday/holidays: Closed</li>
     </ul>  
   </div>
 );

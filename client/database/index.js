@@ -27,6 +27,8 @@ const searchData = (name, db, callback) => {
   });
 };
 
+/*Deprecated in favor of searchData
+
 
 const searchMore = (name, callback) => {
   connection.query(`SELECT * FROM info WHERE id IN (SELECT id FROM restaurants WHERE name = "${name}")`, (err, data) => {
@@ -48,8 +50,9 @@ const searchHours = (name, callback) => {
     return err || data;
   });  
 }
-
+*/
 module.exports.searchInfo = searchInfo;
-module.exports.searchHours = searchHours;
-module.exports.searchMore = searchMore;
 module.exports.searchData = searchData;
+// module.exports.searchHours = searchHours;
+
+// module.exports.searchMore = searchMore;

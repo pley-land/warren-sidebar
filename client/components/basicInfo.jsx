@@ -59,16 +59,10 @@ class BasicInfo extends React.Component {
       <div className="basic-info">
         <div>
           <p>Today {this.state.currentHours}</p>
-          // today's hours + this.state.currentDay
-          // props.
         </div>
         <div>
           <p>Price range {this.getRange()}</p>
         </div>
-        /*<div>
-          // this.state.rating
-          // props.average_rating
-        </div>*/
       </div>
     );
   }

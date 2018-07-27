@@ -48,6 +48,7 @@ class App extends React.Component {
   }
   
   componentDidMount() {
+    // all requests happening simultaneously so far
     $.ajax({
       url: `http://localhost:3047/biz/${this.state.name}/info`,
       method: 'GET',
@@ -67,12 +68,12 @@ class App extends React.Component {
       dataType: 'json',
     }).then((response) => {
         this.setState({
-          Mon: response.Mon,
-          Tue: response.Tue,
-          Wed: response.Wed,
-          Thu: response.Thu,
-          Fri: response.Fri,
-          Sat: response.Sat
+          Mon: response.monday,
+          Tue: response.tuesday,
+          Wed: response.wednesday,
+          Thu: response.thursday,
+          Fri: response.friday,
+          Sat: response.saturday
         });
     }, (err) => {
       console.log(err);
@@ -117,23 +118,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="top-container">
-        <div className="top-content-container">
-          <div className="content-header-container">
-            <BasicInfo/>
-            <Hours/>
-          </div>
-          <div className="content-body-container">
-            <Recommendations />
-            <MoreInfo />
-          </div>
+      <div className="sidebar-container">
+        <div className="basic-container">
+          <BasicInfo/>
+          <Hours/>
+        </div>
+        <div className="more-container">
+          <Recommendations />
+          <MoreInfo />
         </div>
       </div>
     );
   }
 }
-
-
-
 
 ReactDom.render(<App />, document.getElementById('sidebar'));

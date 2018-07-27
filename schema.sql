@@ -1,4 +1,8 @@
-/*CREATE TABLE review_pictures (
+/*
+
+Tables/Databases
+
+CREATE TABLE review_pictures (
   id int NOT NULL AUTO_INCREMENT,
   link varchar(100) NOT NULL,
   review_id int NOT NULL,
