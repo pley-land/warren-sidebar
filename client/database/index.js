@@ -17,8 +17,30 @@ const searchInfo = (name, callback) => {
   });
 };
 
+const searchData = (name, db, callback) => {
+  connection.query(`SELECT * FROM ${db} WHERE id IN (SELECT id FROM restaurants WHERE name = "${name}")`, (err, data) => {
+    if (err) {
+      callback(err);
+    }
+    callback(err, data);
+    return err || data;
+  });
+};
+
+
+const searchMore = (name, callback) => {
+  connection.query(`SELECT * FROM info WHERE id IN (SELECT id FROM restaurants WHERE name = "${name}")`, (err, data) => {
+    if (err) {
+      callback(err);
+    }
+    callback(err, data);
+    return err || data;
+  });
+};
+
+
 const searchHours = (name, callback) => {
-  connection.query(`SELECT * FROM hours WHERE id = (SELECT id FROM restaurants WHERE name = "${name}")`, (err, data) => {
+  connection.query(`SELECT * FROM hours WHERE id IN (SELECT id FROM restaurants WHERE name = "${name}")`, (err, data) => {
     if (err) {
       callback(err);
     }
@@ -29,3 +51,5 @@ const searchHours = (name, callback) => {
 
 module.exports.searchInfo = searchInfo;
 module.exports.searchHours = searchHours;
+module.exports.searchMore = searchMore;
+module.exports.searchData = searchData;

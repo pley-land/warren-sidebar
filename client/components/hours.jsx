@@ -9,10 +9,6 @@ import $ from 'jquery';
     // this.(function) = this.(function).bind(this)
   }
   
-  // componentDidMount?
-  
-  // function to get hours from the hours table
-  
   render() {
     return (
       // html here
@@ -29,7 +25,7 @@ import $ from 'jquery';
   }
 }*/
 
-const hours = (props) => (
+const Hours = (props) => (
   <div className="hours-info">
     <ul>
       <li>Monday: {props.Mon}</li>
@@ -43,4 +39,4 @@ const hours = (props) => (
   </div>
 );
 
-export default hours;
+export default Hours;

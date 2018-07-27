@@ -19,7 +19,31 @@ class App extends React.Component {
       Wed: '',
       Thu: '',
       Fri: '',
-      Sat: '' 
+      Sat: '',
+      reservations: false,
+      delivery: false,
+      takeOut: false,
+      credit: false,
+      applePay: false,
+      googlePay: false,
+      bitcoin: false,
+      goodFor: 'nothing',
+      parking: 'none',
+      bike: false,
+      wheelchair: false,
+      kids: false,
+      groups: false,
+      attire: 'casual',
+      ambience: 'casual',
+      noise: 'loud',
+      alcohol: 'beer',
+      outdoor: false,
+      wifi: false,
+      tv: false,
+      dogs: false,
+      waiter: false,
+      caters: false,
+      bathrooms: false,
     };
   }
   
@@ -53,7 +77,43 @@ class App extends React.Component {
     }, (err) => {
       console.log(err);
       return err;
-    });  }
+    });  
+    $.ajax({
+      url: `http://localhost:3047/biz/${this.state.name}/more`,
+      method: 'GET',
+      dataType: 'json',
+    }).then((response) => {
+        this.setState({
+          reservations: response.reservations,
+          delivery: response.delivery,
+          takeOut: response.takeOut,
+          credit: response.credit,
+          applePay: response.applePay,
+          googlePay: response.googlePay,
+          bitcoin: response.bitcoin,
+          goodFor: response.goodFor,
+          parking: response.parking,
+          bike: response.bike,
+          wheelchair: response.wheelchair,
+          kids: response.kids,
+          groups: response.groups,
+          attire: response.attire,
+          ambience: response.ambience,
+          noise: response.noise,
+          alcohol: response.alcohol,
+          outdoor: response.outdoor,
+          wifi: response.wifi,
+          tv: response.tv,
+          dogs: response.dogs,
+          waiter: response.waiter,
+          caters: response.caters,
+          bathrooms: response.bathrooms,
+        });
+    }, (err) => {
+      console.log(err);
+      return err;
+    });  
+  }
 
   render() {
     return (
