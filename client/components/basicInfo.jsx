@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
-class basicInfo extends React.Component {
+class BasicInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,18 +18,13 @@ class basicInfo extends React.Component {
     // this.getData = this.getData.bind(this);
   }
   
-  // componentDidMount() {}
-  
-
-  
   // getCurrentDay() 
   getToday() {
     var date = new Date();
-    console.log(date);
-    var day = date.getDay();
-    console.log(day);
+    // console.log(date);
+    // var day = date.getDay();
+    // console.log(day);
     this.setState({
-      // currentDay: day,
       currentHours: props[date.getDay()]
     });
     // Implement functionality for finding if open right now
@@ -64,16 +59,10 @@ class basicInfo extends React.Component {
       <div className="basic-info">
         <div>
           <p>Today {this.state.currentHours}</p>
-          // today's hours + this.state.currentDay
-          // props.
         </div>
         <div>
           <p>Price range {this.getRange()}</p>
         </div>
-        /*<div>
-          // this.state.rating
-          // props.average_rating
-        </div>*/
       </div>
     );
   }
@@ -89,3 +78,5 @@ Health score: (set based on restaurants.average_rating)
 
 
 */
+
+export default BasicInfo;

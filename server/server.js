@@ -18,10 +18,20 @@ app.get('/biz/:restaurant/info', (req, res) => {
     }
     res.status(200).json(data);
   });
+}); // expand to include data from more info?
+
+app.get('/biz/:restaurant/more', (req, res) => {
+  db.searchData(restaurant, 'info', (err, data) => {
+    if (err) {
+      res.status(400).json({ result: 'failed' });
+    }
+    res.status(200).json(data);
+  })
 });
 
 app.get('/biz/:restaurant/hours', (req, res) => {
-  db.searchHours(restaurant, (err, data) => {
+  //db.searchHours(restaurant, (err, data) => {
+  db.searchData(restaurant, 'hours', (err, data) => {
     if (err) {
       res.status(400).json({ result: 'failed' });
     }
@@ -29,7 +39,7 @@ app.get('/biz/:restaurant/hours', (req, res) => {
   });
 });
 
-
+// Hardcoded to port 3047
 app.listen(3047, () => {
   console.log(`Listening to port 3047`);
 });
