@@ -33,7 +33,6 @@ class BasicInfo extends React.Component {
   
   // getPriceRange()
   getRange() {
-    // sets this.state.range based on restaurants.price
     if (this.state.price <= 1) {
       return "Under $10";
     } else if (this.state.price === 2) {

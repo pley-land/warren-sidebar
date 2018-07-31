@@ -44,11 +44,13 @@ class App extends React.Component {
       waiter: false,
       caters: false,
       bathrooms: false,
+      lat: '',
+      lng: '',
     };
   }
   
   componentDidMount() {
-    // all requests happening simultaneously so far
+    // all requests happen simultaneously
     $.ajax({
       url: `http://localhost:3047/biz/${this.state.name}/info`,
       method: 'GET',
@@ -56,7 +58,9 @@ class App extends React.Component {
     }).then((response) => {
         this.setState({
           average_rating: response.average_rating,
-          price: response.price
+          price: response.price,
+          lat: response.lat,
+          lng: response.lng
         });
     }, (err) => {
       console.log(err);
