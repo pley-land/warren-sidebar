@@ -14,7 +14,7 @@ class BasicInfo extends React.Component {
     };
     this.getToday = this.getToday.bind(this);
     this.getRange = this.getPrice.bind(this);
-    this.getRating = this.getRating.bind(this);
+    // this.getRating = this.getRating.bind(this);
     // this.getData = this.getData.bind(this);
   }
   
