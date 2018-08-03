@@ -2,23 +2,53 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
 
-/*class recommendations extends React.Component {
+class Recommendations extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {};
+    this.state = {
+      name: 'in-n-out', // temporary
+      price: props.price,
+      rating: props.average_rating,
+      lat: props.lat,
+      lng: props.lng,
+      data: {}
+    };
     // this.(function) = this.(function).bind(this)
   }
   
-  // componentDidMount?
+  // function to search for all restaurants with similar parameters as in this.state
+  componentDidMount() {
+    $.ajax({
+      url: `http://localhost:3047/biz/${this.state.price}-${this.state.rating}-${this.state.lat}-${this.state.lng}`,
+      data: {
+        price: props.price,
+        rating: props.average_rating,
+        lat: props.lat,
+        lng: props.lng        
+      },
+      method: 'GET',
+      dataType: 'json',
+    }).then((response) => {
+        this.setState({
+          data: response.name // should return an object with the names of all recommendations
+        });
+    }, (err) => {
+      console.log(err);
+      return err;
+    });     
+  }
   
-  // function to get recommendations?
-  
+  // still need to dynamically parse the names from this.state.data into <li> elements
   render() {
     return (
-      // html here        
+      <div className='rcmd-info'>
+        <ul>
+          <li>Placeholder</li>
+        </ul>
+      </div>      
     );
   }
-}*/
+}
 
 /*
 
@@ -38,7 +68,7 @@ Function to process the props data and generate an object with similar entries (
 Function to attach links/ajax requests to each entry?
 
 */
-
+/*
 const Recommendations = (props) => {
   <div className='rcmd-info'>
     <ul>
@@ -46,5 +76,5 @@ const Recommendations = (props) => {
     </ul>
   </div>
 };
-
+*/
 export default Recommendations;

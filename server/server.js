@@ -6,7 +6,7 @@ let app = express();
 // let port = process.env.PORT || 3047;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/client/dist'));
 
@@ -18,7 +18,17 @@ app.get('/biz/:restaurant/info', (req, res) => {
     }
     res.status(200).json(data);
   });
-}); // expand to include data from more info?
+});
+
+// this should pass in price, rating, lat, and lng to search for appropriate recommendations
+app.get('http://localhost:3047/biz/:price-:rating-:lat-:lng', (req, res) => {
+  db.searchRcmd(price, rating, lat, lng, (err, data) => {
+    if (err) {
+      res.status(400).json({ result: 'failed' });
+    }
+    res.status(200).json(data);
+  });
+});
 
 app.get('/biz/:restaurant/more', (req, res) => {
   db.searchData(restaurant, 'info', (err, data) => {

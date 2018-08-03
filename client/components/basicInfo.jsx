@@ -14,7 +14,7 @@ class BasicInfo extends React.Component {
     };
     this.getToday = this.getToday.bind(this);
     this.getRange = this.getPrice.bind(this);
-    this.getRating = this.getRating.bind(this);
+    // this.getRating = this.getRating.bind(this);
     // this.getData = this.getData.bind(this);
   }
   
@@ -33,7 +33,6 @@ class BasicInfo extends React.Component {
   
   // getPriceRange()
   getRange() {
-    // sets this.state.range based on restaurants.price
     if (this.state.price <= 1) {
       return "Under $10";
     } else if (this.state.price === 2) {

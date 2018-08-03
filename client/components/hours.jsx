@@ -3,6 +3,8 @@ import ReactDom from 'react-dom';
 import $ from 'jquery'; // is this necessary?
 
 /*
+
+// Deprecated in favor of below
 class hours extends React.Component {
   constructor(props) {
     super(props);

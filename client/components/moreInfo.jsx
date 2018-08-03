@@ -15,6 +15,7 @@ class moreInfo extends React.Component {
 }
 */
 
+// turns true/false values into yes/no
 var stringify = (val) => {
   return (val ? "Yes" : "No");
 };
